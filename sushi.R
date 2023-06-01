@@ -17,7 +17,7 @@ get_relation = function() {
 
 
 get_relation2 = function() {
-  df = read.csv("~/PDownloads/Su-shi - Sheet1 (7).csv", stringsAsFactors = FALSE)
+  df = read.csv("Su-shi.csv", stringsAsFactors = FALSE)
   d = df[, c("name", "relation", "career")]
   # remove duplicated (name, relation)
   d1 = d[!duplicated(d[,1:2]),]
