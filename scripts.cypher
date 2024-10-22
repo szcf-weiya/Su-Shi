@@ -2,13 +2,13 @@
 MATCH (n) DETACH DELETE n
 
 // load data with career
-LOAD CSV WITH HEADERS FROM 'file:///sushi-relation2.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://github.com/user-attachments/files/17481791/sushi-relation2.csv' AS row
 WITH row WHERE row.career <> ''
 CALL apoc.create.node(["People", row.career], {name: row.name, relation: row.relation}) YIELD node
 RETURN *
 
 // load data without career
-LOAD CSV WITH HEADERS FROM 'file:///sushi-relation2.csv' AS row
+LOAD CSV WITH HEADERS FROM 'https://github.com/user-attachments/files/17481791/sushi-relation2.csv' AS row
 WITH row where row.career = ''
 CALL apoc.create.node(["People"], {name: row.name, relation: row.relation}) YIELD node
 RETURN *
